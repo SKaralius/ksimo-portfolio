@@ -1,0 +1,134 @@
+$cardSize: 5rem;
+
+$orangeRed: #bf1736;
+$blackBlue: #0d1440;
+$blue: #1438a6;
+$deepBlue: #0e2773; // no chess
+$lightBlue: #1455d9;
+
+html,
+body {
+	margin: 0;
+	height: 100%;
+}
+
+body {
+	font-family: "Avenir Next", Avenir, "Helvetica Neue", sans-serif;
+	background-color: $blackBlue;
+
+	display: flex;
+	justify-content: center;
+	margin: 0;
+}
+
+.viewfoil {
+	& > h1 {
+		color: $orangeRed;
+	}
+
+	height: 100%;
+	width: 100%;
+	grid-column: 1/5;
+}
+
+.accent {
+	color: $lightBlue;
+}
+
+.container {
+	background-color: $blackBlue;
+	width: auto;
+	height: 100%;
+	display: grid;
+	grid-template-columns: $cardSize $cardSize $cardSize $cardSize;
+	grid-template-rows: 10rem repeat(3, $cardSize) auto;
+	justify-items: center;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+h1 {
+	font-size: 4rem;
+	font-weight: 700;
+	color: $blue;
+	grid-column: 1/5;
+	margin: 0;
+	line-height: 0.8;
+}
+
+h2 {
+	color: $lightBlue;
+	font-size: 2rem;
+	grid-column: 1/3;
+	border-radius: 16px;
+
+	margin: 0;
+	line-height: 1.7rem;
+}
+
+h3 {
+	font-size: 1rem;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	color: white;
+	position: absolute;
+	margin: auto;
+	line-height: $cardSize;
+	z-index: 1;
+}
+
+.item {
+	position: relative;
+	border-radius: 30px;
+
+	/* -webkit-animation: fall 1s normal; 
+	-moz-animation: fall 1s normal; 
+	-o-animation: fall 1s normal; 
+	animation: fall 1s normal;  */
+}
+
+.card {
+	width: $cardSize;
+	border-radius: 16px;
+}
+
+/* @keyframes fall {
+	from {
+		top: 0;
+		left: 0;
+	}
+	to {
+		top: 900px;
+	}
+} */
+
+// div {
+// 	position: relative;
+// 	transition: transform 0.5s;
+// }
+
+/* div.item {
+	transform: translateY(150%);
+} */
+
+.about-title,
+.contact-title {
+	text-align: center;
+	color: $orangeRed;
+}
+p {
+	font-size: 1.5rem;
+	color: $lightBlue;
+}
+
+i {
+	color: $orangeRed;
+	font-size: 5rem;
+	padding-bottom: 1rem;
+}
+
+.accent-orangered {
+	color: $orangeRed;
+}
