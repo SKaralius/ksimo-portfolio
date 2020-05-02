@@ -1,97 +1,122 @@
-$cardSize: 5rem;
+$cardSize: 100vmin / 3;
 
-$orangeRed: #bf1736;
-$blackBlue: #0d1440;
-$blue: #1438a6;
-$deepBlue: #0e2773; // no chess
-$lightBlue: #1455d9;
+$accentColor: #262524;
+$accentColor2: #c0bfd9;
+$accentColor3: #1438a6;
+$backgroundColor: #f2f2f2;
+$textColor: #262524;
+
+@mixin movement($x, $y) {
+	transition: transform 0.5s;
+	transform: translate($x, $y);
+}
 
 html,
 body {
+	overflow: hidden;
 	margin: 0;
 	height: 100%;
+	width: 100%;
 }
 
 body {
 	font-family: "Avenir Next", Avenir, "Helvetica Neue", sans-serif;
-	background-color: $blackBlue;
-
+	background-color: $backgroundColor;
 	display: flex;
-	justify-content: center;
-	margin: 0;
+	flex-direction: column;
+	justify-content: flex-end;
 }
 
 .viewfoil {
+	box-sizing: border-box;
+	padding: 2rem;
+	position: absolute;
+	top: 0;
+	height: calc(100% - #{$cardSize});
+
 	& > h1 {
-		color: $orangeRed;
+		color: $accentColor;
 	}
-
-	height: 100%;
-	width: 100%;
-	grid-column: 1/5;
+	overflow-x: hidden;
 }
 
-.accent {
-	color: $lightBlue;
-}
+.menu {
+	background-color: transparent;
+	top: -50vh;
+	justify-content: center;
 
-.container {
-	background-color: $blackBlue;
-	width: auto;
-	height: 100%;
 	display: grid;
-	grid-template-columns: $cardSize $cardSize $cardSize $cardSize;
-	grid-template-rows: 10rem repeat(3, $cardSize) auto;
-	justify-items: center;
-	align-items: center;
-	gap: 0.5rem;
+	grid-template-columns: repeat(3, $cardSize);
+	grid-template-rows: repeat(3, $cardSize);
+	& > :first-of-type {
+		grid-column: 1/3;
+		justify-self: center;
+	}
+}
+
+.card {
+	position: absolute;
+	width: $cardSize;
+}
+
+.overflow-hidden {
+	overflow: hidden;
 }
 
 h1 {
+	.accent {
+		color: $accentColor;
+	}
+	color: $accentColor2 !important;
 	font-size: 4rem;
 	font-weight: 700;
-	color: $blue;
-	grid-column: 1/5;
 	margin: 0;
 	line-height: 0.8;
 }
 
 h2 {
-	color: $lightBlue;
+	color: $textColor;
 	font-size: 2rem;
 	grid-column: 1/3;
 	border-radius: 16px;
 
 	margin: 0;
-	line-height: 1.7rem;
+	line-height: 0.8;
+}
+
+.about,
+.contact,
+.projects {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 h3 {
-	font-size: 1rem;
+	color: $textColor;
+	-webkit-text-fill-color: $accentColor; /* Will override color (regardless of order) */
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: $accentColor2;
+	background-color: $backgroundColor;
+	border-radius: 16px;
+	padding: 0.5rem;
+	border: 3px $accentColor2 solid;
+
+	font-size: 1.7rem;
 	margin: 0;
-	width: 100%;
-	height: 100%;
 	text-align: center;
-	color: white;
 	position: absolute;
-	margin: auto;
-	line-height: $cardSize;
 	z-index: 1;
 }
 
 .item {
 	position: relative;
-	border-radius: 30px;
+	top: -100vh;
 
 	/* -webkit-animation: fall 1s normal; 
 	-moz-animation: fall 1s normal; 
 	-o-animation: fall 1s normal; 
 	animation: fall 1s normal;  */
-}
-
-.card {
-	width: $cardSize;
-	border-radius: 16px;
 }
 
 /* @keyframes fall {
@@ -114,21 +139,107 @@ h3 {
 } */
 
 .about-title,
-.contact-title {
-	text-align: center;
-	color: $orangeRed;
+.contact-title,
+.projects-title {
+	color: $accentColor;
 }
 p {
-	font-size: 1.5rem;
-	color: $lightBlue;
+	font-weight: normal;
+	line-height: 1.4;
+	font-size: 18px;
+	color: $textColor;
 }
 
 i {
-	color: $orangeRed;
+	color: $accentColor;
 	font-size: 5rem;
 	padding-bottom: 1rem;
 }
 
-.accent-orangered {
-	color: $orangeRed;
+.accent-accentColor {
+	color: $accentColor;
+}
+
+.fall {
+	position: relative;
+	animation: fall 0.5s forwards;
+}
+
+.spreadLeft {
+	@include movement(100vh, 0);
+}
+.spreadRight {
+	@include movement(-100vh, 0);
+}
+
+@keyframes fall {
+	100% {
+		top: 0;
+	}
+}
+
+$monsterPrimaryColor: red;
+$monsterSecondaryColor: #8b0000;
+$spinnerSize: 5rem;
+
+.project-container {
+	display: grid;
+	overflow: hidden;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 1rem;
+}
+
+.project-image {
+	grid-row: 1/4;
+	border: $accentColor 3px solid;
+	width: 100%;
+	& > h4 {
+		position: absolute;
+		font-size: 1.5rem;
+		line-height: 10rem;
+		margin: 0;
+		text-align: center;
+		color: black;
+		z-index: 1;
+	}
+	& > a > img {
+		width: 100%;
+	}
+}
+
+.spinnerContainer {
+	min-width: 7rem;
+	min-height: 7rem;
+	align-self: center;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.spinner {
+		background-color: $monsterPrimaryColor;
+		border: 16px solid $monsterPrimaryColor;
+		border: 5px inset $monsterSecondaryColor;
+		border-radius: 50%;
+		width: $spinnerSize;
+		height: $spinnerSize;
+		animation: grow 2s ease-in infinite;
+	}
+}
+
+@keyframes grow {
+	0% {
+		width: $spinnerSize;
+		height: $spinnerSize;
+		transform: rotate(30deg);
+	}
+	50% {
+		width: $spinnerSize/100 * 50;
+		height: $spinnerSize/100 * 50;
+		transform: rotate(70deg);
+	}
+	100% {
+		width: $spinnerSize;
+		height: $spinnerSize;
+		transform: rotate(30deg);
+	}
 }
