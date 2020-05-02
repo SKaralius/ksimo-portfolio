@@ -42,40 +42,57 @@ function handleClick() {
             <p>I love creating, learning and I strive to improve every day. Programming gives me an area with an\
                 infinite amount of material to study and it is the single most engaging activity I've ever done.\
             </p>\
-            <p>I am familiar with these technologies.</p>\
-            <i class="devicon-javascript-plain"></i>\
-            <i class="devicon-css3-plain-wordmark"></i>\
-            <i class="devicon-html5-plain-wordmark"></i>\
-            <i class="devicon-react-original-wordmark"></i>\
-            <i class="devicon-sass-original"></i>\
-            <i class="devicon-nodejs-plain-wordmark"></i>\
-            <i class="devicon-postgresql-plain-wordmark"></i>\
-            <i class="devicon-git-plain-wordmark"></i>`;
+            <p>One day I hope to work on complex and meaningful projects. As a part of a motivated and remarkable team.</p>
+            <p>As you can see, I'm very passionate about the subject. And I would love to find people who feel the same way :)</p>\
+            <p>I am familiar with below technologies.</p>\
+            <div class="devicon-container">\
+                <i class="devicon-javascript-plain"></i>\
+                <i class="devicon-css3-plain-wordmark"></i>\
+                <i class="devicon-html5-plain-wordmark"></i>\
+                <i class="devicon-react-original-wordmark"></i>\
+                <i class="devicon-sass-original"></i>\
+                <i class="devicon-nodejs-plain-wordmark"></i>\
+                <i class="devicon-postgresql-plain-wordmark"></i>\
+                <i class="devicon-git-plain-wordmark"></i>\
+            </div>`;
 			} else if (event.target.innerText === "Contact") {
 				spreadAnimation();
 				viewfoil.innerHTML = `
-                <h2 class="contact-title">Get in touch</h2>\
+                <h2>Hi, my name is</h2>
+                <br>
+                <h1>K<span class="accent">aralius</span>
+                    <br>
+                    Simo<span class="accent">nas</span></h1>
+                <br>
+                <h2>Let's get in touch.</h2>
                 <p>Write me an email at <a href="mailto:k.simonas@hotmail.com"\
-                        class="accent-orangered">K.Simonas@hotmail.com</a></p>\
+                        class="accent">K.Simonas@hotmail.com</a></p>\
                 <p>Or give me a call at <br> <span class="accent-orangered">+370 695 19 669</span></p>`;
 			} else if (event.target.innerText === "Projects") {
 				spreadAnimation();
 				viewfoil.innerHTML = `
                 <h2 class="projects-title">Projects</h2>\
-                <p>Checkout my <a href="https://github.com/SKaralius">Github.</a></p>\
-                <p>This is the project that I would like to showcase the most though.</p>\
+                <p>This is the project that I would like to showcase the most.</p>\
                 <div class="project-container">\
-                    <div class="spinnerContainer">\
-                        <div class="spinner"></div>\
+                    <div><a href="https://github.com/SKaralius/4Upgrade">\
+                            <h2>4Upgrade</h2>\
+                        </a>\
                     </div>\
-                    <a href="https://github.com/SKaralius/4Upgrade">\
-                        <h2>4Upgrade</h2>\
-                    </a>\
+                    <p>This is a small online game that I built from scratch using React, Node and PostgreSQL.</p>\
+                    <p>This project uses JWT for authorization and authentification.</p>\
                     <div class="project-image">\
-                    <a href="https://4upgrade.now.sh"><img src="/Resource/Capture.JPG" alt=""></a>\
+                        <h4>Preview</h4>\
+                        <a href="https://4upgrade.now.sh">\
+                            <img src="/Resource/Capture.JPG" alt="">\
+                        </a>\
                     </div>\
-                    <p>It is a small online game that I built from scratch using React, Node and PostgreSQL.</p>\
-                </div>`;
+                </div>\
+                <div class="project-details">\
+                <p>All gameplay sensitive user requests are validated on the server.</p>\
+                    <p>The project uses an MIT license. Source code, a more in-depth project overview and set up instructions are available on\
+                        my <a href="https://github.com/SKaralius/">Github</a>.</p>\
+                </div>\
+                `;
 			}
 		};
 	});

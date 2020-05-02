@@ -1,0 +1,66 @@
+.menu {
+	top: -50vh;
+	justify-content: center;
+
+	display: grid;
+	grid-template-columns: repeat(3, $cardSize);
+	grid-template-rows: repeat(3, $cardSize);
+	& > :first-of-type {
+		grid-column: 1/3;
+		justify-self: center;
+	}
+	.item {
+		position: relative;
+		top: -100vh;
+		.card {
+			position: absolute;
+			width: $cardSize;
+		}
+	}
+}
+
+.about,
+.contact,
+.projects {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+h3,
+h4 {
+	color: $textColor;
+	-webkit-text-fill-color: $textColor;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: $accentColor;
+	background-color: $backgroundColor;
+	border-radius: 16px;
+	padding: 0.5rem;
+	border: 3px $accentColor solid;
+
+	font-size: 1.7rem;
+	margin: 0;
+	text-align: center;
+	position: absolute;
+	z-index: 1;
+}
+
+// Animation
+
+.fall {
+	position: relative;
+	animation: fall 0.5s forwards;
+}
+
+.spreadLeft {
+	@include movement(100vh, 0);
+}
+.spreadRight {
+	@include movement(-100vh, 0);
+}
+
+@keyframes fall {
+	100% {
+		top: 0;
+	}
+}
