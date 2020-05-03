@@ -42,7 +42,10 @@ body {
 
 h1 {
 	.accent {
-		color: $accentColor;
+		color: $textColor;
+		-webkit-text-fill-color: $accentColor; /* Will override color (regardless of order) */
+		-webkit-text-stroke-width: 2px;
+		-webkit-text-stroke-color: $textColor;
 	}
 	color: $textColor !important;
 	font-size: 4rem;
@@ -70,23 +73,32 @@ h2 {
 	& h2 {
 		color: $textColor;
 		text-decoration: none;
-		border-bottom: $accentColor 4px solid;
-		padding-bottom: 0.2rem;
+		display: inline;
 	}
 }
 
 .project-image {
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 	grid-row: 1/4;
 	height: 100%;
 	width: 100%;
-	justify-items: flex-start;
-	align-items: flex-start;
 
 	& > h4 {
+		color: $textColor;
+		background-color: $backgroundColor;
+		border-radius: 16px;
+		padding: 0.3rem;
+		border: 3px $accentColor solid;
+
+		font-size: 2rem;
+
 		margin-top: 5rem;
 		pointer-events: none;
+		position: absolute;
+		z-index: 1;
 	}
 	& > a {
 		border: none;
@@ -98,7 +110,8 @@ h2 {
 	}
 }
 
-i {
+svg path {
+	fill: $textColor;
 	color: $textColor;
 	font-size: 5rem;
 	padding-bottom: 1rem;
