@@ -103,7 +103,7 @@ function handleClick() {
                     <div class="project-image">
                         <h4>Preview</h4>
                         <a href="https://4upgrade.now.sh">
-                            <img src="/src/img/4Upgrade.jpg" alt="4Upgrade">
+                            <img src="src/img/4Upgrade.jpg" alt="4Upgrade">
                         </a>
                     </div>
                 </div>
